@@ -2,11 +2,13 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "2nd project",
-  "main": "index.js",
+  "main": "gendiff.js",
   "type": "module",
+  "bin": {
+    "gendiff": "bin/gendiff.js"
+  },
   "scripts": {
-    "test": "test",
-    "gendiff": "/src/gendiff.js"
+    "test": "test"
   },
   "repository": {
     "type": "git",
