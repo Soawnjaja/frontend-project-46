@@ -1,3 +1,12 @@
-const parseFile = (file) => JSON.parse(file);
+import * as path from 'path';
+import * as yaml from 'js-yaml';
 
-export default parseFile;
+const getParsedFile = (file, pathFile) => {
+  const format = path.extname(pathFile);
+  if (format === '.yml' || format === '.yaml') {
+    return yaml.load(file);
+  }
+  return JSON.parse(file);
+};
+
+export default getParsedFile

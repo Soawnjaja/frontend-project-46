@@ -1,14 +1,19 @@
 #!/usr/bin/env node
 import fs from 'fs';
 import path from 'path';
-import parseFile from './parser.js'
-const readFile = fs.readFileSync;
-const getPathFile = (pathF) =>  path.isAbsolute(pathF) ? pathF : path.resolve(process.cwd(), 'frontend-project-46', pathF);
-export default function genDiff(filepath1, filepath2) {
-    const filePath1 = getPathFile(filepath1);
-    const filePath2 = getPathFile(filepath2);
-    const file1 = readFile(filePath1);
-    const file2 = readFile(filePath2);
+import getParsedFile from './parser.js'
 
-    return [parseFile(file1), parseFile(file2)];
+
+ const transformPathToFileObject = (file) => {
+    const filePath = path.isAbsolute(file) ? file : path.resolve(process.cwd(), file);
+    const read = fs.readFileSync(`${filePath}`, 'utf8');
+    const readJson = getParsedFile(read, filePath);
+    return readJson;
+  };
+
+export default function genDiff(filepath1, filepath2) {
+    const file1 = transformPathToFileObject(filepath1);
+    const file2 = transformPathToFileObject(filepath2);
+
+    return [file1, file2 ];
 }
