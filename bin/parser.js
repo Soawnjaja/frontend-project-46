@@ -9,4 +9,4 @@ const getParsedFile = (file, pathFile) => {
   return JSON.parse(file);
 };
 
-export default getParsedFile
+export default getParsedFile;

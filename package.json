@@ -8,7 +8,7 @@
     "gendiff": "frontent-project-46/bin/gendiff.js"
   },
   "scripts": {
-    "test": "test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,9 @@
   "author": "amweb",
   "license": "ISC",
   "dependencies": {
-    "commander": "^11.1.0"
+    "@jest/globals": "^29.7.0",
+    "commander": "^11.1.0",
+    "js-yaml": "^4.1.0"
   },
   "devDependencies": {
     "eslint": "^8.52.0",
