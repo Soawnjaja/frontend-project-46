@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import getParsedFile from './parser.js'
 import { cwd } from 'process';
-const getPath = (filepath) => path.resolve(cwd(), filepath);
+const getPath = (filepath) => path.resolve(cwd(),'__fixtures__', filepath);
  const transformPathToFileObject = (filepath) => {
  const fullPath = getPath(filepath);
  const read = fs.readFileSync(`${fullPath}`, 'utf8');
