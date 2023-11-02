@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "spaownjaja"
+    "url": "git+https://github.com/Soawnjaja/frontend-project-46"
   },
   "keywords": [
     "JS"
