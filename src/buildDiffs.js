@@ -28,3 +28,5 @@ const makeDiff = (data1, data2) => {
   });
   return result;
 };
+
+export default makeDiff;
