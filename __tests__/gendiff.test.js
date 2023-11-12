@@ -2,7 +2,7 @@ import path from 'path';
 import fs from 'fs';
 import url from 'url';
 import { expect, test } from '@jest/globals';
-import genDiff from '../bin/index.js';
+import genDiff from '../bin/gendiff.js';
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,4 +14,5 @@ const expectedResult = result('result_expected.txt');
 // прочитали файлы
 test('gendiff', () => {
   expect(genDiff('file1.json', 'file2.json')).toEqual(expectedResult);
+  expect(genDiff('file1-yaml.yaml', 'file2-yaml.yaml')).toEqual(expectedResult);
 });
