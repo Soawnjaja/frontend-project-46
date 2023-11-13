@@ -23,36 +23,36 @@ function genResult(data) {
           return `${indention(depth)}  ${item.name}: {\n${iter(
             item.children,
             depth + 1,
-          ).join('\n')},\n${indention(depth)}  },`;
+          ).join('\n')}\n${indention(depth)}  }`;
         case 'unchanged':
           return `${indention(depth)}  ${item.name}: ${stringify(
             item.value,
             depth,
-          )},`;
+          )}`;
         case 'changed':
           return `${indention(depth)}- ${item.name}: ${stringify(
             item.value1,
             depth,
-          )},\n${indention(depth)}+ ${item.name}: ${stringify(
+          )}\n${indention(depth)}+ ${item.name}: ${stringify(
             item.value2,
             depth,
-          )},`;
+          )}`;
         case 'deleted':
           return `${indention(depth)}- ${item.name}: ${stringify(
             item.value,
             depth,
-          )},`;
+          )}`;
         case 'added':
           return `${indention(depth)}+ ${item.name}: ${stringify(
             item.value,
             depth,
-          )},`;
+          )}`;
         default:
           throw new Error('Undefined type');
       }
     },
   );
-  return `{\n${iter(data, 1).join('\n')},\n`;
+  return `{\n${iter(data, 1).join('\n')}\n}`;
 }
 
 export default genResult;

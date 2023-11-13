@@ -5,7 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import { cwd } from 'process';
 import getParsedFile from './parser.js';
-import getDiff from './formatter.js';
+import genResult from './formatter.js';
 import makeDiff from './buildDiffs.js';
 
 const getPath = (filepath) => path.resolve(cwd(), '__fixtures__', filepath);
@@ -20,12 +20,12 @@ const genDiff = (file1, file2, format = 'stylish') => {
   if (format === 'stylish') {
     const readData1 = transformPathToFileData(file1);
     const readData2 = transformPathToFileData(file2);
-    const dataDiff = getDiff(readData1, readData2);
-    return makeDiff(dataDiff, format);
+    const dataDiff = makeDiff(readData1, readData2);
+    return genResult(dataDiff);
   }
   const readData1 = transformPathToFileData(file1);
   const readData2 = transformPathToFileData(file2);
-  const dataDiff = getDiff(readData1, readData2);
-  return makeDiff(dataDiff, format);
+  const dataDiff = makeDiff(readData1, readData2);
+  return genResult(dataDiff);
 };
 export default genDiff;
