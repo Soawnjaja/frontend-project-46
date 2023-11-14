@@ -34,6 +34,7 @@ jobs:
       #   # Add Code Climate secret key
         env:
            CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+           INPUT_COVERAGE_COMMAND: npm test --coverage --coverageDirectory=src/ --coverageProvider=v8
         with:
            coverageCommand: make test-coverage
            debug: true
