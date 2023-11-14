@@ -15,7 +15,7 @@ const stringify = (data, depth) => {
   return result;
 };
 
-function genResult(data) {
+function genStylish(data) {
   const iter = (node, depth) => node.map(
     (item) => {
       switch (item.type) {
@@ -55,4 +55,4 @@ function genResult(data) {
   return `{\n${iter(data, 1).join('\n')}\n}`;
 }
 
-export default genResult;
+export default genStylish;
