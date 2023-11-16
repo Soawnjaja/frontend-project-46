@@ -48,7 +48,7 @@ function genStylish(data) {
             depth,
           )}`;
         default:
-          throw new Error('Undefined type');
+          throw new Error(`Undefined type ${item.type}`);
       }
     },
   );
