@@ -17,9 +17,9 @@ const transformPathToFileData = (filepath) => {
 };
 
 const genDiff = (file1, file2, format = 'stylish') => {
-    const readData1 = transformPathToFileData(file1);
-    const readData2 = transformPathToFileData(file2);
-    const dataDiff = makeDiff(readData1, readData2);
-    return getFormat(dataDiff, format);
+  const readData1 = transformPathToFileData(file1);
+  const readData2 = transformPathToFileData(file2);
+  const diffValue = makeDiff(readData1, readData2);
+  return getFormat(diffValue, format);
 };
 export default genDiff;
