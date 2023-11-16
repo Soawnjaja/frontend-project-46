@@ -20,30 +20,30 @@ function genStylish(data) {
     (item) => {
       switch (item.type) {
         case 'nested':
-          return `${indention(depth)}  ${item.name}: {\n${iter(
+          return `${indention(depth)}  ${item.key}: {\n${iter(
             item.children,
             depth + 1,
           ).join('\n')}\n${indention(depth)}  }`;
         case 'unchanged':
-          return `${indention(depth)}  ${item.name}: ${stringify(
+          return `${indention(depth)}  ${item.key}: ${stringify(
             item.value,
             depth,
           )}`;
         case 'changed':
-          return `${indention(depth)}- ${item.name}: ${stringify(
+          return `${indention(depth)}- ${item.key}: ${stringify(
             item.value1,
             depth,
-          )}\n${indention(depth)}+ ${item.name}: ${stringify(
+          )}\n${indention(depth)}+ ${item.key}: ${stringify(
             item.value2,
             depth,
           )}`;
         case 'deleted':
-          return `${indention(depth)}- ${item.name}: ${stringify(
+          return `${indention(depth)}- ${item.key}: ${stringify(
             item.value,
             depth,
           )}`;
         case 'added':
-          return `${indention(depth)}+ ${item.name}: ${stringify(
+          return `${indention(depth)}+ ${item.key}: ${stringify(
             item.value,
             depth,
           )}`;

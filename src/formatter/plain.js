@@ -15,16 +15,16 @@ function getPlainFormat(value, parent = '') {
   return value.map((element) => {
     switch (element.type) {
       case 'added':
-        return `Property '${parent}${element.name}' was added with value: ${stringify(element.value)}`;
+        return `Property '${parent}${element.key}' was added with value: ${stringify(element.value)}`;
       case 'deleted':
-        return `Property '${parent}${element.name}' was removed`;
+        return `Property '${parent}${element.key}' was removed`;
       case 'unchanged':
         return null;
       case 'changed':
-        return `Property '${parent}${element.name}' was updated. From ${stringify(element.value1)} to ${stringify(element.value2)}`;
+        return `Property '${parent}${element.key}' was updated. From ${stringify(element.value1)} to ${stringify(element.value2)}`;
       case 'nested':
         return element.children
-          .map((val) => getPlainFormat([val], `${parent + element.name}.`)).join('\n');
+          .map((val) => getPlainFormat([val], `${parent + element.key}.`)).join('\n');
       default:
         throw new Error(`Unknown typesadsa : ${element.type}`);
     }
