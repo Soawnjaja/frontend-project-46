@@ -23,5 +23,3 @@ const genDiff = (file1, file2, format = 'stylish') => {
   return getFormat(diffValue, format);
 };
 export default genDiff;
-
-
