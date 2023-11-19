@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 import _ from 'lodash';
-// находим разницу и формируем ее в массив
-// испольуем в главном модуле
 
 const makeDiff = (data1, data2) => {
   const keys = _.sortBy(_.union(_.keys(data1), _.keys(data2)));

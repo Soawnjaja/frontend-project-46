@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import * as path from 'path';
 import * as yaml from 'js-yaml';
 // определяем формат полученного файла

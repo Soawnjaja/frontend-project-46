@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const indention = (depth, replacer = ' ', spacesCount = 4) => {
   const indentSize = depth * spacesCount - 2;
   return replacer.repeat(indentSize);
