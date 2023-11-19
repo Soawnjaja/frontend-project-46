@@ -15,14 +15,20 @@ const expectedResultPlain = getFixture('result_plain.txt');
 const expectedResultJSON = getFixture('result_json.txt');
 
 test('gendiff JSON files', () => {
-  expect(genDiff('tree1.json', 'tree2.json', 'stylish')).toEqual(expectedResultStylish);
-  expect(genDiff('tree1.json', 'tree2.json', 'plain')).toEqual(expectedResultPlain);
-  expect(genDiff('tree1.json', 'tree2.json', 'json')).toEqual(expectedResultJSON);
-  expect(genDiff('tree1.json', 'tree2.json')).toEqual(expectedResultStylish);
+  expect(genDiff('file1.json', 'file2.json', 'stylish')).toEqual(expectedResultStylish);
+  expect(genDiff('file1.json', 'file2.json', 'plain')).toEqual(expectedResultPlain);
+  expect(genDiff('file1.json', 'file2.json', 'json')).toEqual(expectedResultJSON);
+  expect(genDiff('file1.json', 'file2.json')).toEqual(expectedResultStylish);
 });
 test('gendiff YAML files', () => {
-  expect(genDiff('treeYAML1.yaml', 'treeYAML2.yaml', 'stylish')).toEqual(expectedResultStylish);
-  expect(genDiff('treeYAML1.yaml', 'treeYAML2.yaml', 'plain')).toEqual(expectedResultPlain);
-  expect(genDiff('treeYAML1.yaml', 'treeYAML2.yaml', 'json')).toEqual(expectedResultJSON);
-  expect(genDiff('treeYAML1.yaml', 'treeYAML2.yaml')).toEqual(expectedResultStylish);
+  expect(genDiff('file1.yaml', 'file2.yaml', 'stylish')).toEqual(expectedResultStylish);
+  expect(genDiff('file1.yaml', 'file2.yaml', 'plain')).toEqual(expectedResultPlain);
+  expect(genDiff('file1.yaml', 'file2.yaml', 'json')).toEqual(expectedResultJSON);
+  expect(genDiff('file1.yaml', 'file2.yaml')).toEqual(expectedResultStylish);
+});
+test('gendiff YML files', () => {
+  expect(genDiff('file1.yml', 'file2.yml', 'stylish')).toEqual(expectedResultStylish);
+  expect(genDiff('file1.yml', 'file2.yml', 'plain')).toEqual(expectedResultPlain);
+  expect(genDiff('file1.yml', 'file2.yml', 'json')).toEqual(expectedResultJSON);
+  expect(genDiff('file1.yml', 'file2.yml')).toEqual(expectedResultStylish);
 });
