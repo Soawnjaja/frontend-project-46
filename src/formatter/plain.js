@@ -10,24 +10,26 @@ const stringify = (data) => {
   return String(data);
 };
 
-function getPlainFormat(value, parent = '') {
-  return value.map((element) => {
-    switch (element.type) {
-      case 'added':
-        return `Property '${parent}${element.key}' was added with value: ${stringify(element.value)}`;
-      case 'deleted':
-        return `Property '${parent}${element.key}' was removed`;
-      case 'unchanged':
-        return null;
-      case 'changed':
-        return `Property '${parent}${element.key}' was updated. From ${stringify(element.value1)} to ${stringify(element.value2)}`;
-      case 'nested':
-        return element.children
-          .map((val) => getPlainFormat([val], `${parent + element.key}.`)).join('\n');
-      default:
-        throw new Error(`Unknown typesadsa : ${element.type}`);
-    }
-  }).join('\n');
-}
-const getValidPlain = (data) => getPlainFormat(data).replace(/^\s*[\r\n]/gm, '');
-export default getValidPlain;
+const getPlainFormat = (data) => {
+  const iter = (node, parent) => {
+    const dataToStringFormat = node.map((element) => {
+      switch (element.type) {
+        case 'nested':
+          return iter(element.children, `${parent}${element.key}.`);
+        case 'added':
+          return `Property '${parent + element.key}' was added with value: ${stringify(element.value)}\n`;
+        case 'deleted':
+          return `Property '${parent + element.key}' was removed\n`;
+        case 'changed':
+          return `Property '${parent + element.key}' was updated. From ${stringify(element.value1)} to ${stringify(element.value2)}\n`;
+        case 'unchanged':
+          return null;
+        default:
+          throw new Error(`Unknown type: ${element.type}`);
+      }
+    });
+    return `${dataToStringFormat.join('')}`;
+  };
+  return iter(data, '').trim();
+};
+export default getPlainFormat;
