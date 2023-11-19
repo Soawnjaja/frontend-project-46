@@ -8,7 +8,7 @@ import getParsedFile from './parser.js';
 import getFormat from './formatter/index.js';
 import makeDiff from './buildDiffs.js';
 
-const getPath = (filepath) => path.resolve(cwd(), '__fixtures__', filepath);
+const getPath = (filepath) => path.resolve(cwd(), filepath);
 const transformPathToFileData = (filepath) => {
   const fullPath = getPath(filepath);
   const read = fs.readFileSync(`${fullPath}`, 'utf8');
@@ -23,3 +23,5 @@ const genDiff = (file1, file2, format = 'stylish') => {
   return getFormat(diffValue, format);
 };
 export default genDiff;
+
+
