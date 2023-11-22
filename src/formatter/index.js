@@ -2,7 +2,7 @@ import genStylish from './stylish.js';
 import genPlain from './plain.js';
 import genJSON from './JSON.js';
 
-const getFormat = (data, format) => {
+const getReport = (data, format) => {
   switch (format) {
     case 'stylish':
       return genStylish(data);
@@ -15,4 +15,4 @@ const getFormat = (data, format) => {
   }
 };
 
-export default getFormat;
+export default getReport;

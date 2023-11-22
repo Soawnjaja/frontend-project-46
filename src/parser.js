@@ -1,12 +1,16 @@
-import * as path from 'path';
-import * as yaml from 'js-yaml';
-// определяем формат полученного файла
-const getParsedFile = (data, formatData) => {
-  const format = path.extname(formatData);
-  if (format === '.yml' || format === '.yaml') {
-    return yaml.load(data);
+import yaml from 'js-yaml';
+
+const parse = (data, format) => {
+  switch (format) {
+    case 'json':
+      return JSON.parse(data);
+    case 'yml':
+      return yaml.load(data);
+    case 'yaml':
+      return yaml.load(data);
+    default:
+      throw new Error(`${format} is not supported`);
   }
-  return JSON.parse(data);
 };
 
-export default getParsedFile;
+export default parse;
