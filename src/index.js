@@ -6,8 +6,7 @@ import compareData from './buildDiffs.js';
 
 const getAbsolutPath = (filepath) => path.resolve(process.cwd(), filepath);
 const readFile = (filepath) => fs.readFileSync(getAbsolutPath(filepath), 'utf-8');
-const getFormat = (filename) => filename.split('.')[1];
-
+const getFormat = (filepath) => path.extname(filepath).slice(1);
 const genDiff = (file1, file2, formatName = 'stylish') => {
   const value1 = readFile(file1);
   const value2 = readFile(file2);
