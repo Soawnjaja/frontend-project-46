@@ -1,6 +1,5 @@
 import genStylish from './stylish.js';
 import genPlain from './plain.js';
-import genJSON from './JSON.js';
 
 const getReport = (data, format) => {
   switch (format) {
@@ -9,7 +8,7 @@ const getReport = (data, format) => {
     case 'plain':
       return genPlain(data);
     case 'json':
-      return genJSON(data);
+      return JSON.stringify(data);
     default:
       throw new Error('Undefined format, please choose format of "json","plain", "stylish" ');
   }
