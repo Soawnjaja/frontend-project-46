@@ -10,7 +10,7 @@ const getReport = (data, format) => {
     case 'json':
       return JSON.stringify(data);
     default:
-      throw new Error('Undefined format, please choose format of "json","plain", "stylish" ');
+      throw new Error(`Error: ${format} - this format is not supported. Available formats: stylish, plain, json`);
   }
 };
 
