@@ -18,7 +18,7 @@ const stringify = (data, depth) => {
  ${lines.join('\n')}
  ${setIndention(depth)} }`;
   return result;
- };
+};
 
 const genStylish = (data) => {
   const iter = (node, depth) => node.map(
@@ -34,16 +34,16 @@ const genStylish = (data) => {
             item.value,
             depth,
           )}`;
-        case 'changed':
+        case 'changed': {
           const line1 = `${setIndention(depth)}- ${item.key}: ${stringify(
             item.value1,
             depth,
-          )}`
+          )}`;
           const line2 = `${setIndention(depth)}+ ${item.key}: ${stringify(
             item.value2,
             depth,
-          )}`
-          return `${line1}\n${line2}`
+          )}`;
+          return `${line1}\n${line2}`; }
         case 'deleted':
           return `${setIndention(depth)}- ${item.key}: ${stringify(
             item.value,
