@@ -11,8 +11,7 @@ const stringify = (data, depth) => {
   }
   const arr = Object.entries(data);
   const lines = arr.map(([key, val]) => {
-    const value = typeof val === 'object' ? stringify(val, depth + 1) : val;
-    return `${setIndention(depth + 1)} ${key}: ${value}`;
+    return `${setIndention(depth +1)} ${key}: ${stringify(val, depth + 1) }`;
   });
   const result = `{
  ${lines.join('\n')}
