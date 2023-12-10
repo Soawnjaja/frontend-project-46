@@ -10,11 +10,9 @@ const stringify = (data, depth) => {
     return String(data);
   }
   const arr = Object.entries(data);
-  const lines = arr.map(([key, val]) => {
-    return `${setIndention(depth +1)} ${key}: ${stringify(val, depth + 1) }`;
-  });
+  const lines = arr.map(([key, val]) => `${setIndention(depth + 1)}  ${key}: ${stringify(val, depth + 1)}`);
   const result = `{
- ${lines.join('\n')}
+${lines.join('\n')}
  ${setIndention(depth)} }`;
   return result;
 };
