@@ -11,9 +11,7 @@ const stringify = (data, depth) => {
   }
   const lines = Object.entries(data);
   const line = lines.map(([key, val]) => `${setIndention(depth + 1)}  ${key}: ${stringify(val, depth + 1)}`);
-  const result = `{
-${line.join('\n')}
- ${setIndention(depth)} }`;
+  const result = `{\n${line.join('\n')}\n${setIndention(depth)} }`;
   return result;
 };
 
